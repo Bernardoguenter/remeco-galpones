@@ -1,0 +1,111 @@
+---
+import { Picture } from "astro:assets";
+import ArrowDropDown from "@assets/svg/ArrowDropDown.astro";
+
+interface Props {
+  link: string;
+  label: string;
+  isSubMenu?: boolean;
+  styles?: string;
+}
+
+const { link, label, isSubMenu = false, styles = "" } = Astro.props;
+---
+
+<li
+  class={`uppercase text-slate-800 flex items-center relative ${styles} border-b border-b-stone-200 w-full`}
+  id={isSubMenu ? `${label.toLowerCase()}-item` : ""}>
+  <a
+    href={link}
+    class="text-stone-200 md:text-slate-800 text-right w-full">
+    {label}
+  </a>
+  {
+    isSubMenu && (
+      <span id={`${label.toLowerCase()}-arrow`}>
+        <ArrowDropDown color="white" />
+      </span>
+    )
+  }
+</li>
+
+{
+  isSubMenu && (
+    <div
+      id={`${label.toLowerCase()}-dropdown`}
+      class="hidden bg-slate-800 border-b border-b-stone-200 w-full text-white py-2 px-4  items-center gap-4 transition-all duration-300 ease-out">
+      <article class="flex flex-col items-center justify-center gap-1">
+        <a
+          href="/silos/aereos"
+          class="text-center">
+          <Picture
+            alt="silos aéreos"
+            src="/images/silos-aereos.jpg"
+            layout="constrained"
+            width={220}
+            height={220}
+            class="rounded aspect-square"
+          />
+          Silos Aéreos
+        </a>
+      </article>
+      <article class="flex flex-col items-center justify-center gap-1">
+        <a
+          href="/silos/comederos"
+          class="text-center">
+          <Picture
+            alt="silos comederos"
+            src="/images/silos-comederos.jpg"
+            layout="constrained"
+            width={220}
+            height={220}
+            class="rounded"
+          />
+          Silos Comederos
+        </a>
+      </article>
+    </div>
+  )
+}
+
+<script>
+  function manageMobileDropdown() {
+    const arrowBtn = document.getElementById(`silos-arrow`);
+    const dropdown = document.getElementById(`silos-dropdown`);
+
+    if (arrowBtn && dropdown && window.innerWidth < 1024) {
+      let isOpen = false;
+
+      arrowBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        if (!isOpen) {
+          dropdown.classList.remove("hidden");
+          dropdown.classList.add("flex");
+          arrowBtn.classList.add("rotate-180");
+          isOpen = true;
+        } else {
+          dropdown.classList.add("hidden");
+          dropdown.classList.remove("flex");
+          arrowBtn.classList.remove("rotate-180");
+          isOpen = false;
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          isOpen &&
+          !dropdown.contains(e.target as Node) &&
+          e.target !== arrowBtn
+        ) {
+          dropdown.classList.add("hidden");
+          dropdown.classList.remove("flex");
+          arrowBtn.classList.remove("rotate-180");
+          isOpen = false;
+        }
+      });
+    }
+  }
+  document.addEventListener("astro:page-load", manageMobileDropdown);
+  document.addEventListener("astro:before-preparation", manageMobileDropdown);
+</script>

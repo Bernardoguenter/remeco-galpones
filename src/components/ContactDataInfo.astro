@@ -1,0 +1,38 @@
+---
+import AddressIcon from "@assets/svg/AddressIcon.astro";
+import EmailIcon from "@assets/svg/EmailIcon.astro";
+import PhoneIcon from "@assets/svg/PhoneIcon.astro";
+import SocialIcons from "./SocialIcons.astro";
+
+interface Props {
+  textColor?: string;
+  iconColor?: string;
+}
+
+const { textColor = "text-slate-800", iconColor = "#e7e5e5" } = Astro.props;
+---
+
+<ul class=`flex flex-col items-center md:items-start gap-2 ${textColor} mb-8`>
+  <li class="flex md:items-center gap-1 text-center md:text-base text-sm">
+    <PhoneIcon
+      size="16"
+      color={iconColor}
+    />
+    Teléfono: 295-480-5880
+  </li>
+  <li class="flex items-center gap-1 text-center md:text-base text-sm">
+    <EmailIcon
+      size="16"
+      color={iconColor}
+    />
+    metalurgicaremeco1@gmail.com
+  </li>
+  <li class="flex items-center gap-1 text-center md:text-base text-sm">
+    <AddressIcon
+      size="16"
+      color={iconColor}
+    />
+    Colonia Menonita, Remecó, La Pampa
+  </li>
+</ul>
+<SocialIcons iconColor={iconColor} />

@@ -1,22 +1,68 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import Footer from "@components/Footer/Footer.astro";
+import Fonts from "@components/head/Fonts.astro";
+import Header from "@components/Nav/Header.astro";
+import WhatsappButton from "@components/WhatsappButton.astro";
+import { ClientRouter } from "astro:transitions";
+import "@styles/global.css";
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+const {
+  title = "Metalúrgica Remeco",
+  description = "Sitio web de Metalúrgica Remeco. Galponenes y tinglados para industria y agricultura. Envíos a todo el país. Servicio pre y post venta. Opciones de financiación.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.png"
+    />
+    <link
+      rel="sitemap"
+      href="/sitemap-index.xml"
+    />
+    <Fonts />
+    <meta
+      name="generator"
+      content={Astro.generator}
+    />
+    <meta
+      name="description"
+      content={description}
+    />
+    <title>{title}</title>
+    <script
+      is:inline
+      id="recaptcha-script"
+      src={`https://www.google.com/recaptcha/api.js?render=${import.meta.env.PUBLIC_RECAPTCHA_API_KEY}`}
+      async
+      defer
+    ></script>
+    <script is:inline>
+      document.addEventListener("astro:page-load", () => {
+        if (!window.grecaptcha) {
+          const script = document.getElementById("recaptcha-script");
+          if (script) {
+            const clone = script.cloneNode(true);
+            script.replaceWith(clone);
+          }
+        }
+      });
+    </script>
+    <ClientRouter />
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <slot />
+    <Footer />
+    <WhatsappButton />
+  </body>
+</html>

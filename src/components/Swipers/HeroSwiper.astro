@@ -1,0 +1,94 @@
+---
+import ButtonLink from "@components/ButtonLink.astro";
+import { Image } from "astro:assets";
+---
+
+<div class="hero-section flex">
+  <div
+    class="slide-text flex flex-col justify-center items-center bg-gray-100 p-10 w-2/5 relative z-100">
+    <h1 class="text-slate-800 uppercase text-center text-4xl font-bold">
+      TINGLADOS Y GALPONES
+    </h1>
+    <p class="text-slate-900 text-center mt-4 max-w-md mb-4">
+      Acá va una descripción para este título.
+    </p>
+    <div class="gap-4 flex">
+      <ButtonLink
+        label="Ver Tinglados"
+        style="primary"
+        link="/tinglados"
+      />
+      <ButtonLink
+        label="Ver Galpones"
+        style="secondary"
+        link="/galpones"
+      />
+    </div>
+  </div>
+
+  <!-- Swiper solo con imágenes -->
+  <div class="swiper-hero w-3/5">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <Image
+          alt="Silos Aéreos"
+          src="/images/silos-aereos.jpg"
+          width={800}
+          height={800}
+          class="object-cover object-center w-full h-full"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="swiper-slide">
+        <Image
+          alt="Silos Comederos"
+          src="/images/silos-comederos.jpg"
+          width={800}
+          height={800}
+          class="object-cover object-center w-full h-full"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .hero-section {
+    height: 70vh;
+    overflow: hidden;
+  }
+
+  .swiper-hero {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  @media (max-width: 1024px) {
+    .hero-section {
+      flex-direction: column-reverse;
+      height: auto;
+    }
+
+    .slide-text,
+    .swiper-hero {
+      width: 100%;
+    }
+
+    .swiper-hero {
+      height: 30vh;
+    }
+
+    .slide-text {
+      padding: 2rem;
+    }
+  }
+</style>
+
+<script src="@lib/swiper.js"></script>
