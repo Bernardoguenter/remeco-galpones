@@ -1,0 +1,34 @@
+---
+import { Image } from "astro:assets";
+---
+
+<button
+  class="fixed md:bottom-5 bottom-3 md:right-5 right-3 z-50 rounded-full"
+  id="wa-btn">
+  <Image
+    src="/images/whatsapp.svg"
+    alt="whatsapp icon"
+    width={56}
+    height={56}
+    class="svg"
+  />
+</button>
+
+<style>
+  .svg {
+    border-radius: 100%;
+  }
+</style>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const whatsappNumber = import.meta.env.PUBLIC_WA_NUMBER;
+    const btn = document.getElementById("wa-btn") as HTMLButtonElement;
+    btn.addEventListener("click", () => {
+      window.open(
+        `https://wa.me/${whatsappNumber}?text=Hola, me contacto a través del sitio web de Metalúrgica Remeco`,
+        "_blank"
+      );
+    });
+  });
+</script>

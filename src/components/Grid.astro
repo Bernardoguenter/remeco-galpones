@@ -1,0 +1,24 @@
+---
+import GridCard from "./GridCard.astro";
+---
+
+<main class="p-4 lg:p-16 md:p-12 w-full">
+  <section class="grid grid-cols-1 md:grid-cols-2 lg:gap-12 gap-6">
+    <GridCard
+      imageSrc="/images/silos-aereos.jpg"
+      alt="Galpones"
+      title="Ver Galpones"
+      imgWidth={800}
+      imgHeight={600}
+      link="/galpones"
+    />
+    <GridCard
+      imageSrc="/images/silos-comederos.jpg"
+      alt="Tinglados"
+      title="Ver Tinglados"
+      imgWidth={800}
+      imgHeight={600}
+      link="/tinglados"
+    />
+  </section>
+</main>
