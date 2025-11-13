@@ -39,8 +39,10 @@ export const FormResult = ({ total, formResults, setView }: Props) => {
           style="primary"
           message={message}
         />
-        <Button style="secondary">
-          <span onClick={handleView}>Volver a Cotizar</span>
+        <Button
+          style="secondary"
+          onClick={handleView}>
+          Volver a Cotizar
         </Button>
       </div>
     </div>
