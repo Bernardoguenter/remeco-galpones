@@ -1,11 +1,12 @@
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import type { FormResults, Preferences } from "../../types/types";
 import { Button } from "./Button";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { valibotResolver } from "@hookform/resolvers/valibot";
 import { CalculatorSchema, type CalculatorSchemaType } from "./schema";
 import { InputForm } from "./InputForm";
 import { SelectForm } from "./SelectForm";
 import { getStructureBudgetTotal } from "@helpers/calculatePrices";
+import { useEffect } from "react";
 
 interface Props {
   preferences: Preferences;
@@ -23,11 +24,20 @@ export const Calculator = ({
   setView,
 }: Props) => {
   const methods = useForm<CalculatorSchemaType>({
-    resolver: zodResolver(CalculatorSchema),
-    defaultValues: { height: 0, length: 0, width: 0 },
+    resolver: valibotResolver(CalculatorSchema),
+    defaultValues: {
+      height: 0,
+      length: 0,
+      width: 0,
+      material: "Hierro torsionado",
+    },
   });
 
   const { handleSubmit, reset } = methods;
+
+  useEffect(() => {
+    console.log(methods);
+  }, [methods]);
 
   const onSubmit: SubmitHandler<CalculatorSchemaType> = (data) => {
     const enclousureHeight = type === "galpones" ? data.height - 0.5 : 0;
@@ -35,17 +45,6 @@ export const Calculator = ({
       type === "galpones"
         ? { width: data.width / 3, height: data.height - 0.5 }
         : { width: 0, height: 0 };
-
-    console.log(
-      preferences,
-      data.width,
-      data.length,
-      data.height,
-      enclousureHeight,
-      type,
-      data.material,
-      gates
-    );
 
     const result = getStructureBudgetTotal(
       preferences,
