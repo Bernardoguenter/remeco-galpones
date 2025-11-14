@@ -21,7 +21,7 @@ export const InputForm = ({ name, type, label }: Props) => {
         {label}
       </label>
       <input
-        {...register(name)}
+        {...register(name, type === "number" ? { valueAsNumber: true } : {})}
         className="
           border border-slate-300 
           rounded-md 
