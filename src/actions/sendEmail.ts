@@ -76,7 +76,7 @@ export const sendEmail = defineAction({
       }
 
       await resend.emails.send({
-        from: "Metalúrgica remeco <noreply@silosremeco.com>",
+        from: "Metalúrgica remeco <noreply@galponesremeco.com>",
         to: ["juanmderosa@gmail.com"],
         subject: "Nuevo mensaje de contacto desde Metalúrgica Remeco",
         html: `
