@@ -39,14 +39,6 @@ const {
       content={description}
     />
     <title>{title}</title>
-    <script
-      is:inline
-      data-astro-rerun
-      id="recaptcha-script"
-      src={`https://www.google.com/recaptcha/api.js?render=${import.meta.env.PUBLIC_RECAPTCHA_API_KEY}`}
-      async
-      defer
-    ></script>
     <ClientRouter />
   </head>
   <body class="flex flex-col min-h-screen">
