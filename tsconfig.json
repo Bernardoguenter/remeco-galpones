@@ -1,39 +1,18 @@
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [
-    ".astro/types.d.ts",
-    "src/**/*",
-    "src/@types/**/*.d.ts"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": [".astro/types.d.ts", "src/**/*", "src/@types/**/*.d.ts"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@actions/*": [
-        "./src/actions/*"
-      ],
-      "@helpers/*": [
-        "./src/helpers/*"
-      ],
-      "@layouts/*": [
-        "./src/layouts/*"
-      ],
-      "@lib/*": [
-        "./src/lib/*"
-      ],
-      "@pages/*": [
-        "./src/pages/*"
-      ],
-      "@styles/*": [
-        "./src/styles/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ]
+      "@components/*": ["./src/components/*"],
+      "@actions/*": ["./src/actions/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@config/*": ["./src/config/*"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"

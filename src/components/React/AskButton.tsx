@@ -1,9 +1,11 @@
+import { config } from "@config/config";
+
 interface Props {
   message: string;
   style?: "primary" | "secondary";
 }
 
-const whatsappNumber = import.meta.env.PUBLIC_WA_NUMBER;
+const whatsappNumber = config.wa_number;
 
 export const ReactAskButton = ({ message, style = "primary" }: Props) => {
   const baseClasses =
