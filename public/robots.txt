@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://galponesremeco.com/sitemap-index.xml

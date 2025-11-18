@@ -1,4 +1,3 @@
-const isProd = import.meta.env.PROD;
 const isDev = import.meta.env.DEV;
 
 export const config = {

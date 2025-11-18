@@ -5,6 +5,8 @@ import vercel from "@astrojs/vercel";
 
 import react from "@astrojs/react";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -37,6 +39,6 @@ export default defineConfig({
   adapter: vercel({
     imageService: false,
   }),
-
-  integrations: [react()],
+  site: "https://galponesremeco.com/",
+  integrations: [react(), sitemap()],
 });
