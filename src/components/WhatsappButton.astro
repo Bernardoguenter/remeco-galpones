@@ -3,7 +3,7 @@ import { Image } from "astro:assets";
 ---
 
 <button
-  class="fixed md:bottom-5 bottom-3 md:right-5 right-3 z-50 rounded-full"
+  class="fixed md:bottom-5 bottom-3 md:right-5 right-3 z-50 rounded-full cursor-pointer"
   id="wa-btn">
   <Image
     src="/images/whatsapp.svg"
@@ -21,8 +21,9 @@ import { Image } from "astro:assets";
 </style>
 
 <script>
+  import { config } from "@config/config";
   document.addEventListener("astro:page-load", () => {
-    const whatsappNumber = import.meta.env.PUBLIC_WA_NUMBER;
+    const whatsappNumber = config.wa_number;
     const btn = document.getElementById("wa-btn") as HTMLButtonElement;
     btn.addEventListener("click", () => {
       window.open(
