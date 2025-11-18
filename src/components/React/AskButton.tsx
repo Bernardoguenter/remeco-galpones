@@ -16,6 +16,7 @@ export const ReactAskButton = ({ message, style = "primary" }: Props) => {
       : "bg-white text-slate-800 hover:bg-slate-800 hover:text-white transition";
   return (
     <a
+      title="Chatear por Whatsapp"
       href={`https://wa.me/${whatsappNumber}?text=Hola, me contacto a través del sitio web de Galpones y Tingaldos. Estoy interesado en un ${message}`}
       className={`${baseClasses} ${styleClasses} transition-all delay-75 self-start`}
       target="_blank">
