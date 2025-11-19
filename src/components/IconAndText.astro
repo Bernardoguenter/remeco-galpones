@@ -1,9 +1,10 @@
 ---
+import type { ImageMetadata } from "astro";
 import { Picture } from "astro:assets";
 
-interface IconAndText {
+interface Props {
   altText: string;
-  image: string;
+  image: ImageMetadata;
   textLine1: string;
   textLine2: string;
 }

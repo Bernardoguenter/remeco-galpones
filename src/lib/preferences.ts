@@ -1,6 +1,7 @@
+import type { Preferences } from "../types/types";
 import { supabase } from "./supabase";
 
-let cachedPreferences: any = null;
+let cachedPreferences: Preferences | null = null;
 let lastFetchTime = 0;
 const CACHE_DURATION = 1000 * 60 * 5; // 5 minutos
 
