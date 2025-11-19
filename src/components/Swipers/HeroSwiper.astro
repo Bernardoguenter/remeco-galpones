@@ -1,6 +1,8 @@
 ---
 import ButtonLink from "@components/ButtonLink.astro";
-import { Image } from "astro:assets";
+import { Picture } from "astro:assets";
+import silosAereos from "@assets/images/silos-aereos.jpg";
+import silosComederos from "@assets/images/silos-comederos.jpg";
 ---
 
 <div class="hero-section flex">
@@ -30,23 +32,28 @@ import { Image } from "astro:assets";
   <div class="swiper-hero w-3/5">
     <div class="swiper-wrapper">
       <div class="swiper-slide">
-        <Image
+        <Picture
           alt="Silos Aéreos"
-          src="/images/silos-aereos.jpg"
+          src={silosAereos}
           width={800}
           height={800}
           class="object-cover object-center w-full h-full"
           fetchpriority="high"
+          layout="constrained"
+          formats={["avif", "webp"]}
         />
       </div>
       <div class="swiper-slide">
-        <Image
+        <Picture
           alt="Silos Comederos"
-          src="/images/silos-comederos.jpg"
+          src={silosComederos}
           width={800}
           height={800}
           class="object-cover object-center w-full h-full"
           fetchpriority="high"
+          fetchpriority="high"
+          layout="constrained"
+          formats={["avif", "webp"]}
         />
       </div>
     </div>

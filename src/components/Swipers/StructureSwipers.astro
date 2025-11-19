@@ -1,4 +1,5 @@
 ---
+import { Picture } from "astro:assets";
 import { Image } from "astro:assets";
 
 const images = [
@@ -20,11 +21,14 @@ const images = [
     {
       images.map((image) => (
         <div class="swiper-slide rounded">
-          <Image
+          <Picture
             src={image}
             alt="imagen"
             width={1000}
             height={1000}
+            fetchpriority="high"
+            layout="constrained"
+            formats={["avif", "webp"]}
           />
         </div>
       ))
@@ -38,11 +42,14 @@ const images = [
     {
       images.map((image) => (
         <div class="swiper-slide">
-          <Image
+          <Picture
             src={image}
             alt="imagen"
             width={200}
             height={200}
+            fetchpriority="high"
+            layout="constrained"
+            formats={["avif", "webp"]}
           />
         </div>
       ))
