@@ -4,7 +4,7 @@ import eslintPluginAstro from "eslint-plugin-astro";
 
 export default [
   {
-    ignores: ["src/types/astro.d.ts"],
+    ignores: ["src/types/astro.d.ts", "src/__tests__/**"],
   },
   js.configs.recommended,
   ...tseslint.configs.recommended,
