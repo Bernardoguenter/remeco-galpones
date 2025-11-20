@@ -6,7 +6,6 @@ import { CalculatorSchema, type CalculatorSchemaType } from "./schema";
 import { InputForm } from "./InputForm";
 import { SelectForm } from "./SelectForm";
 import { getStructureBudgetTotal } from "@helpers/calculatePrices";
-import { useEffect } from "react";
 
 interface Props {
   preferences: Preferences;
@@ -34,10 +33,6 @@ export const Calculator = ({
   });
 
   const { handleSubmit, reset } = methods;
-
-  useEffect(() => {
-    console.log(methods);
-  }, [methods]);
 
   const onSubmit: SubmitHandler<CalculatorSchemaType> = (data) => {
     const enclousureHeight = type === "galpones" ? data.height - 0.5 : 0;

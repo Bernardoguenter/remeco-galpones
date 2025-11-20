@@ -14,7 +14,7 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
 <div class="swiper mySwiper2">
   <div class="swiper-wrapper">
     {
-      images.map((image, index) => (
+      images.map((image) => (
         <div class="swiper-slide rounded">
           <Picture
             src={image}
@@ -26,7 +26,7 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
             width={520}
             height={520}
             fetchpriority="high"
-            loading={index === 0 ? "eager" : "lazy"}
+            loading={"eager"}
             layout="constrained"
             formats={["avif", "webp"]}
           />
@@ -40,7 +40,7 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     {
-      images.map((image, index) => (
+      images.map((image) => (
         <div class="swiper-slide">
           <Picture
             src={image}
@@ -52,7 +52,7 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
             width={100}
             height={100}
             fetchpriority="high"
-            loading={index < 5 ? "eager" : "lazy"}
+            loading={"eager"}
             layout="constrained"
             formats={["avif", "webp"]}
           />
