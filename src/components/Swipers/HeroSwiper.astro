@@ -1,8 +1,10 @@
 ---
 import ButtonLink from "@components/ButtonLink.astro";
 import { Picture } from "astro:assets";
-import silosAereos from "@assets/images/silos-aereos.jpg";
-import silosComederos from "@assets/images/silos-comederos.jpg";
+import banner1 from "@assets/images/bannerGalponesRemeco1.webp";
+import banner2 from "@assets/images/bannerGalponesRemeco2.webp";
+import banner3 from "@assets/images/bannerGalponesRemeco3.webp";
+import banner4 from "@assets/images/bannerGalponesRemeco4.webp";
 ---
 
 <div class="hero-section flex">
@@ -33,8 +35,8 @@ import silosComederos from "@assets/images/silos-comederos.jpg";
     <div class="swiper-wrapper">
       <div class="swiper-slide">
         <Picture
-          alt="Silos Aéreos"
-          src={silosAereos}
+          alt="Galpones y Tinglados Remeco Metalúrgica"
+          src={banner1}
           width={800}
           height={800}
           class="object-cover object-center w-full h-full"
@@ -45,8 +47,34 @@ import silosComederos from "@assets/images/silos-comederos.jpg";
       </div>
       <div class="swiper-slide">
         <Picture
-          alt="Silos Comederos"
-          src={silosComederos}
+          alt="Galpones y Tinglados Remeco Metalúrgica"
+          src={banner2}
+          width={800}
+          height={800}
+          class="object-cover object-center w-full h-full"
+          fetchpriority="high"
+          fetchpriority="high"
+          layout="constrained"
+          formats={["avif", "webp"]}
+        />
+      </div>
+      <div class="swiper-slide">
+        <Picture
+          alt="Galpones y Tinglados Remeco Metalúrgica"
+          src={banner3}
+          width={800}
+          height={800}
+          class="object-cover object-center w-full h-full"
+          fetchpriority="high"
+          fetchpriority="high"
+          layout="constrained"
+          formats={["avif", "webp"]}
+        />
+      </div>
+      <div class="swiper-slide">
+        <Picture
+          alt="Galpones y Tinglados Remeco Metalúrgica"
+          src={banner4}
           width={800}
           height={800}
           class="object-cover object-center w-full h-full"
