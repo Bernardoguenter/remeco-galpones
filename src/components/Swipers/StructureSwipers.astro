@@ -1,31 +1,32 @@
 ---
 import { Picture } from "astro:assets";
+import { galponesImg, tingladosImg } from "@helpers/strucuresImages";
 
-const images = [
-  "https://swiperjs.com/demos/images/nature-1.jpg",
-  "https://swiperjs.com/demos/images/nature-2.jpg",
-  "https://swiperjs.com/demos/images/nature-3.jpg",
-  "https://swiperjs.com/demos/images/nature-4.jpg",
-  "https://swiperjs.com/demos/images/nature-5.jpg",
-  "https://swiperjs.com/demos/images/nature-6.jpg",
-  "https://swiperjs.com/demos/images/nature-7.jpg",
-  "https://swiperjs.com/demos/images/nature-8.jpg",
-  "https://swiperjs.com/demos/images/nature-9.jpg",
-  "https://swiperjs.com/demos/images/nature-10.jpg",
-];
+interface Props {
+  type: "tinglado" | "galpones";
+}
+
+const { type } = Astro.props;
+
+const images = type === "tinglado" ? tingladosImg : galponesImg;
 ---
 
 <div class="swiper mySwiper2">
   <div class="swiper-wrapper">
     {
-      images.map((image) => (
+      images.map((image, index) => (
         <div class="swiper-slide rounded">
           <Picture
             src={image}
-            alt="imagen"
+            alt={
+              type === "galpones"
+                ? "galpones Remeco Metalúrgica"
+                : "tinglados Remeco Metalúrgica"
+            }
             width={1000}
             height={1000}
             fetchpriority="high"
+            loading={index === 0 ? "eager" : "lazy"}
             layout="constrained"
             formats={["avif", "webp"]}
           />
@@ -39,14 +40,19 @@ const images = [
 <div class="swiper mySwiper">
   <div class="swiper-wrapper">
     {
-      images.map((image) => (
+      images.map((image, index) => (
         <div class="swiper-slide">
           <Picture
             src={image}
-            alt="imagen"
+            alt={
+              type === "galpones"
+                ? "galpones Remeco Metalúrgica"
+                : "tinglados Remeco Metalúrgica"
+            }
             width={200}
             height={200}
             fetchpriority="high"
+            loading={index < 5 ? "eager" : "lazy"}
             layout="constrained"
             formats={["avif", "webp"]}
           />
