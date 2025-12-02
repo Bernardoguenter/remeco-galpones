@@ -17,8 +17,8 @@ export const FormResult = ({ total, formResults, setView }: Props) => {
   const message =
     formResults.structure_type === "galpones"
       ? ` Un galpón con estructura de ${formResults.material} de ${
-          formResults.width
-        }mts de ancho x ${formResults.height}mts de alto x
+          formResults.height
+        }mts de alto x ${formResults.width}mts de ancho x 
           ${
             formResults.length
           }mts de largo, con portón corredizo, tiene un costo

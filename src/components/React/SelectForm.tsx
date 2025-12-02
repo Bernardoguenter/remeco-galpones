@@ -5,8 +5,14 @@ interface Props {
   name: string;
   children: ReactNode;
   label: string;
+  containerStyle?: string;
 }
-export const SelectForm = ({ name, label, children }: Props) => {
+export const SelectForm = ({
+  name,
+  label,
+  children,
+  containerStyle = "",
+}: Props) => {
   const {
     register,
     formState: { errors },
@@ -14,7 +20,7 @@ export const SelectForm = ({ name, label, children }: Props) => {
 
   const fieldError = errors?.[name];
   return (
-    <div className={`flex flex-col }`}>
+    <div className={`flex flex-col ${containerStyle}`}>
       <label
         htmlFor="height"
         className="capitalize text-slate-800">
@@ -38,7 +44,6 @@ export const SelectForm = ({ name, label, children }: Props) => {
       </select>
       {errors[name] && (
         <span className="text-red-800 text-xs mt-1">
-          {" "}
           {String((fieldError as any)?.message)}
         </span>
       )}
