@@ -33,7 +33,9 @@ export default defineConfig({
   },
 
   output: "server",
-
+  prefetch: {
+    prefetchAll: true,
+  },
   adapter: vercel({
     imageService: false,
   }),
