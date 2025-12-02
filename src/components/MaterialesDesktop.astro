@@ -1,0 +1,48 @@
+---
+import perfilu from "@assets/images/perfilu.png";
+import torsionado from "@assets/images/torsionado.png";
+import almallena from "@assets/images/almallena.png";
+import { Picture } from "astro:assets";
+
+const materials = [
+  {
+    name: "Hierro Torsionado",
+    description:
+      "Estructura resistente y liviana, con excelente comportamiento a la tracción y flexión. Es la opción más económica y ofrece muy buena estabilidad.",
+    image: torsionado,
+  },
+  {
+    name: "Peril U",
+    description:
+      "Sistema liviano y reforzado, fácil de montar y con excelente estabilidad lateral. Tiene una mejor terminación visual y es más estético.",
+    image: perfilu,
+  },
+  {
+    name: "Alma Llena",
+    description:
+      "Vigas continuas de alta rigidez que permiten cubrir grandes luces sin apoyos intermedios. Es una estructura robusta, estable y muy duradera.",
+    image: almallena,
+  },
+];
+---
+
+<section>
+  <h2 class="mb-4 text-slate-900">Trabajamos con estructuras de:</h2>
+  <div class="flex md:flex-row flex-col md:gap-8 gap-4">
+    {
+      materials.map((material) => (
+        <article class="flex flex-col items-center gap-4 border border-slate-800 p-2 md:p-4 mb-2 rounded">
+          <aside class="w-full flex items-center justify-between">
+            <h3 class="text-slate-900 font-bold">{material.name}</h3>
+            <Picture
+              src={material.image}
+              alt={material.name}
+              class="md:w-24 md:h-24 w-12 h-12"
+            />
+          </aside>
+          <p class="text-slate-800">{material.description}</p>
+        </article>
+      ))
+    }
+  </div>
+</section>
