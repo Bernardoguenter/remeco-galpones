@@ -6,6 +6,9 @@ import { CalculatorSchema, type CalculatorSchemaType } from "./schema";
 import { InputForm } from "./InputForm";
 import { SelectForm } from "./SelectForm";
 import { getStructureBudgetTotal } from "@helpers/calculatePrices";
+import perfilu from "@assets/images/perfilu.png";
+import torsionado from "@assets/images/torsionado.png";
+import almallena from "@assets/images/almallena.png";
 
 interface Props {
   preferences: Preferences;
@@ -32,7 +35,17 @@ export const Calculator = ({
     },
   });
 
-  const { handleSubmit, reset } = methods;
+  const { handleSubmit, reset, watch } = methods;
+
+  const materials = {
+    "Hierro torsionado": torsionado,
+    "Perfil U": perfilu,
+    "Alma llena": almallena,
+  } as const;
+
+  type MaterialType = keyof typeof materials;
+
+  const selected = watch("material") as MaterialType;
 
   const onSubmit: SubmitHandler<CalculatorSchemaType> = (data) => {
     const enclousureHeight = type === "galpones" ? data.height - 0.5 : 0;
@@ -77,13 +90,23 @@ export const Calculator = ({
         onSubmit={handleSubmit(onSubmit)}
         className="w-full max-w-full mt-4 ">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <SelectForm
-            name="material"
-            label="Material">
-            <option value="Hierro torsionado">Hierro Torsionado</option>
-            <option value="Perfil U">Perfil U</option>
-            <option value="Alma llena">Alma Llena</option>
-          </SelectForm>
+          <div className="flex items-end justify-between">
+            <SelectForm
+              name="material"
+              label="Material"
+              containerStyle="w-7/8">
+              <option value="Hierro torsionado">Hierro Torsionado</option>
+              <option value="Perfil U">Perfil U</option>
+              <option value="Alma llena">Alma Llena</option>
+            </SelectForm>
+            <div className="w-1/8">
+              <img
+                src={materials[selected].src}
+                className=" w-12 h-12"
+              />
+            </div>
+          </div>
+
           <InputForm
             label="Alto (mts)"
             name="height"
