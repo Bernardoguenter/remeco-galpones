@@ -1,0 +1,34 @@
+---
+import { getCachedPreferences } from "@lib/preferences";
+import { CalculatorContainer } from "./React/CalculatorContainer";
+import StructureSwipers from "./Swipers/StructureSwipers.astro";
+
+const preferences = await getCachedPreferences();
+---
+
+<section class="w-full flex md:flex-row flex-col lg:gap-8 gap-4 pb-8">
+  <div class="md:w-1/2">
+    <article class="relative">
+      <StructureSwipers type="galpones" />
+    </article>
+  </div>
+  <aside class="md:w-1/2 p-4">
+    <h2 class="mb-4 text-slate-800">Galpones</h2>
+    <ul class="mb-4 list-disc list-inside text-slate-800">
+      <li>
+        Cabreadas y columnas de: hierro torsionado, alma llena, o perfil U.
+      </li>
+      <li>
+        Perfilería para techo y laterales: Perfil de 100x50x2 mm galvanizado.
+      </li>
+      <li>Chapa de techo: Sincalum n°25, acanalada.</li>
+      <li>Chapa de lateral: Sincalum n°25 acanalada.</li>
+      <li>Portón corredizo.</li>
+    </ul>
+    <CalculatorContainer
+      client:load
+      type="galpones"
+      preferences={preferences}
+    />
+  </aside>
+</section>

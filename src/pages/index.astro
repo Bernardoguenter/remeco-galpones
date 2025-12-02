@@ -6,12 +6,16 @@ import QuienesSomos from "@components/QuienesSomos.astro";
 import Services from "@components/Services.astro";
 import Layout from "@layouts/Layout.astro";
 import Silos from "@components/Silos.astro";
+import Materiales from "@components/Materiales.astro";
 ---
 
 <Layout>
   <Hero />
   <Services />
   <Grid />
+  <section class="p-8 md:px-16 md:pb-8 md:pt-0">
+    <Materiales />
+  </section>
   <QuienesSomos />
   <ContactUs />
   <Silos />
