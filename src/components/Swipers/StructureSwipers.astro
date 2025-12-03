@@ -27,9 +27,10 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
             height={390}
             fit="cover"
             fetchpriority="high"
-            loading={"eager"}
             layout="constrained"
             formats={["avif", "webp"]}
+            loading="eager"
+            decoding="async"
           />
         </div>
       ))
@@ -56,6 +57,7 @@ const images = type === "tinglado" ? tingladosImg : galponesImg;
             loading={"eager"}
             layout="constrained"
             formats={["avif", "webp"]}
+            loading="lazy"
           />
         </div>
       ))

@@ -32,7 +32,6 @@ export const getStructureBudgetTotal = (
     solid_web_columns_price_list,
   } = preferences;
 
-  console.log({ width, length, height });
   const floorArea = width * length;
   const perimeter = 2 * (width + length);
   const enclousureArea = perimeter * enclousure_height;
@@ -44,26 +43,19 @@ export const getStructureBudgetTotal = (
       ? u_profile_cost
       : calculateSolidWebStructure(width, solid_web_price_list!);
 
-  console.log("price_per_meter", price_per_meter);
-
   //CALCULAR PRECIO DE ESTRUCTURA
   const structure_cost = floorArea * price_per_meter;
-  console.log("structure_cost", structure_cost);
 
   //CALCULAR COLUMNAS
   const numberOfColumns = Math.floor(length / 5) + 1;
   const totalColumns = numberOfColumns * 2;
 
-  console.log("material", material);
-  console.log("twisted_iron_column_cost", twisted_iron_column_cost);
   const columnsPrice =
     material === "Hierro torsionado"
       ? twisted_iron_column_cost
       : material === "Perfil U"
       ? u_profile_column_cost
       : calculateSolidWebStructure(width, solid_web_columns_price_list);
-
-  console.log("columnsPrice", columnsPrice);
 
   const columnsCost =
     height === 5
@@ -72,8 +64,6 @@ export const getStructureBudgetTotal = (
         Math.abs(height - 5) *
         columnsPrice *
         (height > 5 ? 1 : -1);
-
-  console.log("COLUMNS COST", columnsCost);
 
   //CALCULAR COSTO CERRAMIENTO
   const enclousureCost =
@@ -87,7 +77,6 @@ export const getStructureBudgetTotal = (
 
   //CALCULAR PRECIO TOTAL
   const totalPrice = structure_cost + columnsCost + enclousureCost + gateCost;
-  console.log("TOTAL PRICE", totalPrice);
 
   const finalPriceInDollars =
     default_markup > 0 ? totalPrice * (1 + default_markup / 100) : totalPrice;

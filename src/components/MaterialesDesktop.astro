@@ -38,6 +38,9 @@ const materials = [
               src={material.image}
               alt={material.name}
               class="md:w-24 md:h-24 w-12 h-12"
+              formats={["avif", "webp"]}
+              decoding="async"
+              loading="lazy"
             />
           </aside>
           <p class="text-slate-800">{material.description}</p>

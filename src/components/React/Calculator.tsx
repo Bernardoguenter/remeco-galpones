@@ -102,6 +102,7 @@ export const Calculator = ({
             <div className="w-1/8">
               <img
                 src={materials[selected].src}
+                alt={materials[selected].src}
                 className=" w-12 h-12"
               />
             </div>
