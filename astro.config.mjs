@@ -37,7 +37,7 @@ export default defineConfig({
     prefetchAll: true,
   },
   adapter: vercel({
-    imageService: false,
+    imageService: true,
   }),
   site: "https://galponesremeco.com/",
   integrations: [react(), sitemap()],
