@@ -88,7 +88,8 @@ export const Calculator = ({
     <FormProvider {...methods}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="w-full max-w-full mt-4 ">
+        className="w-full max-w-full mt-4"
+        id={`form_presupuesto_-${type}`}>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="flex items-end justify-between">
             <SelectForm
