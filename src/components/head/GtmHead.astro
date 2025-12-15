@@ -1,19 +1,10 @@
 ---
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
-console.log(GTM_ID);
-if (!GTM_ID) {
-  console.log("GTM_ID no definido");
-}
 ---
 
-<script is:inline>
+<script type="module" define:vars={{ GTM_ID }}>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(...args);
-  }
-</script>
-<script is:inline>
-  window.dataLayer = window.dataLayer || [];
+
   window.dataLayer.push({
     "gtm.start": new Date().getTime(),
     event: "gtm.js",
@@ -24,6 +15,4 @@ if (!GTM_ID) {
   script.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
 
   document.head.appendChild(script);
-
-  console.logDOM(GTM_ID);
 </script>
