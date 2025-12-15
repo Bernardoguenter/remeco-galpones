@@ -1,5 +1,6 @@
 ---
 const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
+console.log(GTM_ID);
 if (!GTM_ID) {
   console.log("GTM_ID no definido");
 }
@@ -23,4 +24,6 @@ if (!GTM_ID) {
   script.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
 
   document.head.appendChild(script);
+
+  console.logDOM(GTM_ID);
 </script>
