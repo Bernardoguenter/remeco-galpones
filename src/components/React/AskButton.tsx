@@ -14,13 +14,21 @@ export const ReactAskButton = ({ message, style = "primary" }: Props) => {
     style === "primary"
       ? "bg-slate-800 text-white hover:bg-white hover:text-slate-800 "
       : "bg-white text-slate-800 hover:bg-slate-800 hover:text-white transition";
+
+  const handleChat = (message: string) => {
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=Hola, me contacto a través del sitio web de Galpones y Tingaldos. Estoy interesado en un ${message}`,
+      "_blank"
+    );
+  };
+
   return (
-    <a
+    <button
+      onClick={() => handleChat(message)}
       title="Chatear por Whatsapp"
-      href={`https://wa.me/${whatsappNumber}?text=Hola, me contacto a través del sitio web de Galpones y Tingaldos. Estoy interesado en un ${message}`}
-      className={`${baseClasses} ${styleClasses} transition-all delay-75 self-start`}
-      target="_blank">
+      id="chat_with_us"
+      className={`${baseClasses} ${styleClasses} transition-all delay-75 self-start`}>
       Hablar con un asesor
-    </a>
+    </button>
   );
 };
