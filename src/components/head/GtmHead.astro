@@ -1,8 +1,4 @@
-<!-- ---
-const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
----
-
-<script type="module" define:vars={{ GTM_ID }}>
+<script is:inline>
   window.dataLayer = window.dataLayer || [];
 
   window.dataLayer.push({
@@ -12,20 +8,7 @@ const GTM_ID = import.meta.env.PUBLIC_GTM_ID;
 
   const script = document.createElement("script");
   script.async = true;
-  script.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
+  script.src = "https://www.googletagmanager.com/gtm.js?id=GTM-NZM3ZZZG";
 
   document.head.appendChild(script);
-</script> -->
-<script
-  is:inline
-  src="'https://www.googletagmanager.com/gtm.js?id=GTM-NZM3ZZZG"
-  type="text/partytown"
-></script>
-<script is:inline type="text/partytown">
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () {
-    dataLayer.push(arguments);
-  };
-  window.gtag("js", new Date());
-  window.gtag("config", "GTM-NZM3ZZZG");
 </script>

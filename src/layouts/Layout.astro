@@ -8,6 +8,7 @@ import "@styles/global.css";
 import MetaTags from "@components/head/MetaTags.astro";
 import Sitemap from "@components/head/Sitemap.astro";
 import GTMHead from "@components/head/GtmHead.astro";
+import GtmPageView from "@components/head/GtmPageView.astro";
 import GtmNoScript from "@components/head/GtmNoScript.astro";
 
 const {
@@ -37,5 +38,6 @@ const {
     <slot />
     <Footer />
     <WhatsappButton />
+    <GtmPageView />
   </body>
 </html>
