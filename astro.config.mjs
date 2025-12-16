@@ -4,6 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
+import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,5 +41,9 @@ export default defineConfig({
     imageService: true,
   }),
   site: "https://galponesremeco.com/",
-  integrations: [react(), sitemap()],
+  integrations: [
+    react(),
+    sitemap(),
+    partytown({ config: { forward: ["dataLayer.push", "gtag"] } }),
+  ],
 });
