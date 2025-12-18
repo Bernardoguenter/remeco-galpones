@@ -9,6 +9,7 @@ import { getStructureBudgetTotal } from "@helpers/calculatePrices";
 import perfilu from "@assets/images/perfilu.png";
 import torsionado from "@assets/images/torsionado.png";
 import almallena from "@assets/images/almallena.png";
+import { pushGtmEvent } from "@helpers/gtmEvents";
 
 interface Props {
   preferences: Preferences;
@@ -77,6 +78,12 @@ export const Calculator = ({
 
     setTotal(result);
     setView("result");
+
+    pushGtmEvent("calcular_click", {
+      type: type,
+      material: data.material,
+    });
+
     reset();
   };
 

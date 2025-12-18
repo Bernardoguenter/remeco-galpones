@@ -1,4 +1,5 @@
 import { config } from "@config/config";
+import { pushGtmEvent } from "@helpers/gtmEvents";
 
 interface Props {
   message: string;
@@ -16,6 +17,8 @@ export const ReactAskButton = ({ message, style = "primary" }: Props) => {
       : "bg-white text-slate-800 hover:bg-slate-800 hover:text-white transition";
 
   const handleChat = (message: string) => {
+    pushGtmEvent("asesor_click", { source: "calculator_asesor", message });
+
     window.open(
       `https://wa.me/${whatsappNumber}?text=Hola, me contacto a través del sitio web de Galpones y Tingaldos. Estoy interesado en un ${message}`,
       "_blank"
