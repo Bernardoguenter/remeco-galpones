@@ -41,6 +41,7 @@ export default defineConfig({
     imageService: true,
   }),
   site: "https://galponesremeco.com/",
+
   integrations: [
     react(),
     sitemap(),
