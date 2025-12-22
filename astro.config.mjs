@@ -34,17 +34,24 @@ export default defineConfig({
   },
 
   output: "server",
-  prefetch: {
-    prefetchAll: true,
-  },
+
   adapter: vercel({
     imageService: true,
   }),
   site: "https://galponesremeco.com/",
 
+  security: {
+    allowedDomains: [
+      {
+        hostname: "**.galponesremeco.com/",
+        protocol: "https",
+      },
+    ],
+  },
+
   integrations: [
     react(),
     sitemap(),
-    partytown({ config: { forward: ["dataLayer.push", "gtag"] } }),
+    /* partytown({ config: { forward: ["dataLayer.push", "gtag"] } }), */
   ],
 });
