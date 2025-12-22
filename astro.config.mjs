@@ -41,17 +41,7 @@ export default defineConfig({
   site: "https://galponesremeco.com",
 
   security: {
-    checkOrigin: true,
-    allowedDomains: [
-      {
-        hostname: "galponesremeco.com",
-        protocol: "https",
-      },
-      {
-        hostname: "www.galponesremeco.com",
-        protocol: "https",
-      },
-    ],
+    checkOrigin: false,
   },
 
   integrations: [react(), sitemap()],
