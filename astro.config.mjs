@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
 export default defineConfig({
@@ -38,20 +37,22 @@ export default defineConfig({
   adapter: vercel({
     imageService: true,
   }),
-  site: "https://galponesremeco.com/",
+
+  site: "https://galponesremeco.com",
 
   security: {
+    checkOrigin: true,
     allowedDomains: [
       {
-        hostname: "**.galponesremeco.com/",
+        hostname: "galponesremeco.com",
+        protocol: "https",
+      },
+      {
+        hostname: "www.galponesremeco.com",
         protocol: "https",
       },
     ],
   },
 
-  integrations: [
-    react(),
-    sitemap(),
-    /* partytown({ config: { forward: ["dataLayer.push", "gtag"] } }), */
-  ],
+  integrations: [react(), sitemap()],
 });
