@@ -7,7 +7,7 @@ import { pushGtmEvent } from "@helpers/gtmEvents";
 
 document.addEventListener("astro:page-load", () => {
   const form = document.getElementById(
-    "contact-form-estrucutras"
+    "contact-form-estructuras"
   ) as HTMLFormElement;
   const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
   const successMsg = document.getElementById(
@@ -64,7 +64,7 @@ document.addEventListener("astro:page-load", () => {
       showMessage(errorMsg, false);
 
       pushGtmEvent("contact_form_submit", {
-        form_id: "contact-form-estrucutras",
+        form_id: "contact-form-estructuras",
       });
 
       form.reset();
